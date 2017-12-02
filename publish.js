@@ -59,8 +59,8 @@ prompt.get(promptSchema, (err, res) => {
       execLogged(`mv ${publishDir + "/.git"} ${buildDir}`);
       execLogged(`rm -rf ${publishDir}`);
 
-      // create CNAME file
-      fs.writeFileSync(path.join(buildDir, "CNAME"), domain, "utf-8");
+      // // create CNAME file
+      // fs.writeFileSync(path.join(buildDir, "CNAME"), domain, "utf-8");
 
       await generateRedirects();
 

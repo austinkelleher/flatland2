@@ -34,7 +34,7 @@ function onStartupError(err) {
 }
 
 module.exports = require("marko-starter").projectConfig({
-  routePathPrefix: "/",
+  routePathPrefix: "/flatland2",
   beforeBuild() {
     return startBuildTasks().catch(onStartupError);
   },
