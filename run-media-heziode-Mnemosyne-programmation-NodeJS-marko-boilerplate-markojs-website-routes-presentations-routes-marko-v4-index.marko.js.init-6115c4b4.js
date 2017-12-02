@@ -1,0 +1,2 @@
+$_mod.def('/run/media/heziode/Mnemosyne/programmation/NodeJS/marko/boilerplate/markojs-website/routes/presentations/routes/marko-v4/index.marko.js.init.js',function(a){var b=a('/marko$4.7.0/components-browser.marko');b.register('/flatland2$1.0.0/routes/presentations/components/presentation/index.marko',a('/flatland2$1.0.0/routes/presentations/components/presentation/index.marko'))});
+$_mod.run("/run/media/heziode/Mnemosyne/programmation/NodeJS/marko/boilerplate/markojs-website/routes/presentations/routes/marko-v4/index.marko.js.init.js");
