@@ -1,0 +1,24 @@
+.site-footer {
+    background:#f6f8fa;
+    width:100%;
+    color:#86888a;
+    padding:2em;
+    border-top:1px solid #dbdddf;
+    align-items: center;
+    position: relative;
+}
+
+.site-footer span {
+    font-size:1.3em;
+}
+
+.site-footer span img {
+    height:1em;
+    margin-bottom:-0.2em;
+}
+
+.site-footer .copyright {
+    color:#97999b;
+    font-size:0.8em;
+    display:block;
+}

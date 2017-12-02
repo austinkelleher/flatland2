@@ -1,0 +1,5 @@
+{
+    "body": "static-text",
+    "preserve-whitespace": true,
+    "transformer":"./transformer"
+}

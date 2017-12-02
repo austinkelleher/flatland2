@@ -1,0 +1,3 @@
+{
+    "watch": [".", "./node_modules/marko/docs"]
+}

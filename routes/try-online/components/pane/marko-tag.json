@@ -1,0 +1,6 @@
+{
+    "@files <file>[]": {
+        "@file": "object"
+    },
+    "@active-tab-file": "object"
+}

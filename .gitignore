@@ -1,0 +1,10 @@
+static
+node_modules
+*.marko.js
+.cache
+.nyc_output
+npm-debug.log
+.DS_Store
+/dist
+components-generated/*
+!components-generated/.gitkeep

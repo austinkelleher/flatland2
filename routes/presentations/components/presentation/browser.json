@@ -1,0 +1,7 @@
+{
+  "dependencies": [
+    "reveal.js/css/reveal.css",
+    "reveal.js/css/theme/black.css",
+    "reveal.js/js/reveal.js"
+  ]
+}
