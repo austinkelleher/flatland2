@@ -1,3 +1,4 @@
+const { promisify } = require('util');
 const fs = require("fs");
 const path = require("path");
 const prompt = require("prompt");
@@ -8,6 +9,30 @@ const buildDir = __dirname + "/dist";
 const publishDir = buildDir + "/__publish";
 const domain = "github.com";
 const generateRedirects = require("./generateRedirects");
+const globAsync = promisify(require("glob"));
+const readFileAsync = promisify(fs.readFile);
+
+/**
+* When a `gh-pages` branch is used, a base url is appended to the end of the
+* user's standard github.io URL.
+*
+* For example: `my-user-here/repo-here` -> my-user-here.github.io/repo-here
+*
+* If the user has created an org repo, the base url is not added. For example,
+* If `marko-js.github.io` is a repo created under the `marko-js` org, the
+* url to access the GitHub page is actually just: marko-js.github.io. If this
+* code was to be deployed to an org as described, the following variable should
+* be deleted.
+*/
+const baseUrl = "/flatland2";
+
+function writeFileAsync (path, data) {
+  return new Promise((resolve, reject) => {
+    fs.writeFile(path, data, (err) => {
+      return err ? reject(err) : resolve();
+    })
+  })
+}
 
 function execLogged(cmd) {
   console.log(cmd);
@@ -40,6 +65,17 @@ prompt.get(promptSchema, (err, res) => {
   require("./project")
     .build()
     .then(async () => {
+      if (baseUrl) {
+        const files = await globAsync(`${buildDir}/**/*.html`);
+
+        for (const filePath of files) {
+          let html = await readFileAsync(filePath, 'utf8');
+          html = html.replace(/src="\//g, `src="${baseUrl}/`);
+          html = html.replace(/href="\//g, `href="${baseUrl}/`);
+          await writeFileAsync(filePath, html);
+        }
+      }
+
       // create publish directory
       execLogged(`mkdir ${publishDir}`);
 
